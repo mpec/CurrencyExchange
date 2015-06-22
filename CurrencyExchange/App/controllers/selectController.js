@@ -18,7 +18,7 @@
             self.submit = function() {
                 $location.path('/result');
                 $location.search({
-                    selectedDate: self.selectedDate.toISOString(),
+                    selectedDate: self.selectedDate.toISOString(), //the code doesn't take timezones into account
                     currency: self.currency
                 });
             };

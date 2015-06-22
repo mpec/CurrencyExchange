@@ -9,7 +9,7 @@ namespace CurrencyExchange.Tests.Integration
     {
         [Test]
         [Ignore]
-        public void GivenCorrectUrlWhenWeTryToGetCurrencyDataThenWeShouldGetAXDocument()
+        public void GivenCorrectUrlWhenWeTryToGetCurrencyDataThenWeShouldGetXDocument()
         {
             var serviceWrapper = new ServiceWrapper();
             
@@ -20,11 +20,31 @@ namespace CurrencyExchange.Tests.Integration
 
         [Test]
         [Ignore]
-        public void GivenInCorrectUrlWhenWeTryToGetCurrencyDataExceptonShouldBeThrown()
+        public void GivenIncorrectUrlWhenWeTryToGetCurrencyDataThenExceptonShouldBeThrown()
         {
             var serviceWrapper = new ServiceWrapper();
 
             Assert.Throws<DocumentNotFoundException>(() => serviceWrapper.GetCurrencyData(string.Format("{0}{1}", Const.WebServiceBaseUrl, "a025z100217.xml")));
+        }
+
+        [Test]
+        [Ignore]
+        public void GivenCorrectDateWhenWeTryToGetUrlThenWeShouldGetAValidUrl()
+        {
+            var serviceWrapper = new ServiceWrapper();
+
+            var result = serviceWrapper.GetUrl("020102");
+
+            Assert.AreEqual("http://www.nbp.pl/kursy/xml/a001z020102.xml", result);
+        }
+
+        [Test]
+        [Ignore]
+        public void GivenInCorrectDateWhenWeTryToGeUrlThenExceptonShouldBeThrown()
+        {
+            var serviceWrapper = new ServiceWrapper();
+
+            Assert.Throws<DocumentNotFoundException>(() => serviceWrapper.GetUrl("020105"));
         }
     }
 }

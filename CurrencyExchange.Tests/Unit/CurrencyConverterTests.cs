@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using CurrencyExchange.Logic;
-using CurrencyExchange.Models;
 using NUnit.Framework;
 
 namespace CurrencyExchange.Tests.Unit

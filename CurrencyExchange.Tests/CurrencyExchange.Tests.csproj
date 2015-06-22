@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit\CurrencyConverterTests.cs" />
     <Compile Include="Unit\MockData.cs" />
+    <Compile Include="Unit\PreviousDayCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

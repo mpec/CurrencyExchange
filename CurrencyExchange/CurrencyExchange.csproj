@@ -148,9 +148,13 @@
     <Compile Include="Controllers\api\CurrencyController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Exceptions\DocumentNotFoundException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Const.cs" />
+    <Compile Include="Helpers\IServiceWrapper.cs" />
+    <Compile Include="Helpers\ServiceWrapper.cs" />
     <Compile Include="Models\CurrencyRequest.cs" />
     <Compile Include="Models\CurrencyResult.cs" />
     <Compile Include="Models\Trend.cs" />

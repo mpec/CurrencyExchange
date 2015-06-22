@@ -155,8 +155,12 @@
     <Compile Include="Helpers\Const.cs" />
     <Compile Include="Helpers\IServiceWrapper.cs" />
     <Compile Include="Helpers\ServiceWrapper.cs" />
+    <Compile Include="Logic\CurrencyConverter.cs" />
+    <Compile Include="Logic\ICurrencyConverter.cs" />
+    <Compile Include="Models\CurrencyKey.cs" />
     <Compile Include="Models\CurrencyRequest.cs" />
     <Compile Include="Models\CurrencyResult.cs" />
+    <Compile Include="Models\CurrencyValue.cs" />
     <Compile Include="Models\Trend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

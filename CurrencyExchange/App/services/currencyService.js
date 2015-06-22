@@ -9,7 +9,8 @@
         self.get = function(params) {
             return $http.get('/api/currency/get', {
                     params: {
-                        data: params
+                        currency: params.currency,
+                        date: params.selectedDate
                     }
                 })
                 .success(function(data) {

@@ -4,7 +4,7 @@ namespace CurrencyExchange.Models
 {
     public class CurrencyRequest
     {
-        public string CurrencySymbol { get; set; } 
+        public string Currency { get; set; } 
         public DateTime Date { get; set; } 
     }
 }

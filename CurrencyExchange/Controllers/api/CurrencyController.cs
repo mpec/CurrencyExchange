@@ -15,7 +15,7 @@ namespace CurrencyExchange.Controllers.api
         public CurrencyResult Get([FromUri]CurrencyRequest data)
         {
             var serviceWrapper = new ServiceWrapper();
-            //TODO: missing: extract logic to other class, cache, xml reader
+            //TODO: missing: extract logic to other class, cache
             var urlForDate = serviceWrapper.GetUrl(data.Date.ToString("yyMMdd"));
             var dataforDate = serviceWrapper.GetCurrencyData(urlForDate);
 

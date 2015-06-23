@@ -8,12 +8,18 @@ namespace CurrencyExchange.Tests.Unit
     [TestFixture]
     public class PreviousDayCalculatorTests
     {
+        private PreviousDayCalculator _previousDayCalculator;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _previousDayCalculator = new PreviousDayCalculator();
+        }
+
         [Test]
         public void GivenMondayWhenCalculatingPreviousDayThenShouldReturnFriday()
         {
-            var previousDayCalculator = new PreviousDayCalculator();
-
-            var previousDay = previousDayCalculator.GetPreviousDay(new DateTime(2015, 6, 22));
+            var previousDay = _previousDayCalculator.GetPreviousDay(new DateTime(2015, 6, 22));
 
             Assert.AreEqual(new DateTime(2015, 6, 19), previousDay);
         }
@@ -21,9 +27,7 @@ namespace CurrencyExchange.Tests.Unit
         [Test]
         public void GivenFirstDayOfMonthyWhenCalculatingPreviousDayThenShouldReturnLastDayOfPreviousMonth()
         {
-            var previousDayCalculator = new PreviousDayCalculator();
-
-            var previousDay = previousDayCalculator.GetPreviousDay(new DateTime(2015, 5, 1));
+            var previousDay = _previousDayCalculator.GetPreviousDay(new DateTime(2015, 5, 1));
 
             Assert.AreEqual(new DateTime(2015, 4, 30), previousDay);
         }
@@ -31,17 +35,13 @@ namespace CurrencyExchange.Tests.Unit
         [Test]
         public void GivenDateBeforeFirstInFileWhenCalculatingPreviousDayThenShouldThrowException()
         {
-            var previousDayCalculator = new PreviousDayCalculator();
-
-            Assert.Throws<IncorrectDateException>(() => previousDayCalculator.GetPreviousDay(new DateTime(2000, 5, 1)));
+            Assert.Throws<IncorrectDateException>(() => _previousDayCalculator.GetPreviousDay(new DateTime(2000, 5, 1)));
         }
 
         [Test]
         public void GivenDateAfterTodayWhenCalculatingPreviousDayThenShouldThrowException()
         {
-            var previousDayCalculator = new PreviousDayCalculator();
-
-            Assert.Throws<IncorrectDateException>(() => previousDayCalculator.GetPreviousDay(DateTime.Now.AddDays(2)));
+            Assert.Throws<IncorrectDateException>(() => _previousDayCalculator.GetPreviousDay(DateTime.Now.AddDays(2)));
         }
     }
 }

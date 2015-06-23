@@ -4,12 +4,15 @@
     <br />
     <span>Currency: {{vm.data.currency}}</span>
     <br />
-    <span>Value: {{vm.result.Value}}</span>
-    <br />
-    <span>Trend: {{vm.result.Trend}}</span>
+    <span ng-show="vm.loading">Loading...</span>
+    <div ng-show="!vm.loading">
+        <span>Value: {{vm.result.Value}}</span>
+        <br />
+        <span>Trend: {{vm.result.Trend}}</span>
+    </div>
     <br />
 
     <span class="error" ng-show="vm.error">{{vm.error}}</span>
-    <br/>
+    <br />
     <a href="#/">Go Back</a>
 </div>

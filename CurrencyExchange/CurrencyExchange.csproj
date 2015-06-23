@@ -156,6 +156,8 @@
     <Compile Include="Helpers\Const.cs" />
     <Compile Include="Helpers\IServiceWrapper.cs" />
     <Compile Include="Helpers\ServiceWrapper.cs" />
+    <Compile Include="Infrastructure\IArchivedDataProvider.cs" />
+    <Compile Include="Infrastructure\MemoryDataProvider.cs" />
     <Compile Include="Logic\CurrencyConverter.cs" />
     <Compile Include="Logic\CurrencyProvider.cs" />
     <Compile Include="Logic\ICurrencyConverter.cs" />

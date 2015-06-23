@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
 using CurrencyExchange.Helpers;
+using CurrencyExchange.Infrastructure;
 using CurrencyExchange.Logic;
 using CurrencyExchange.Models;
 using Moq;
@@ -14,6 +15,7 @@ namespace CurrencyExchange.Tests.Unit
     {
         private const string Currency = "GBP";
         private const string UnusedCurrency = "EUR";
+        private const double DollarCurrency = 3.14;
         private CurrencyProvider _currencyProvider;
         private DateTime _date;
         private XDocument _xDocument;
@@ -37,7 +39,7 @@ namespace CurrencyExchange.Tests.Unit
                     },
                     new CurrencyValue
                     {
-                        Value = (decimal) 3.14
+                        Value = (decimal) DollarCurrency
                     }
                 },
                 {
@@ -63,7 +65,7 @@ namespace CurrencyExchange.Tests.Unit
                     },
                     new CurrencyValue
                     {
-                        Value = (decimal) 3.14
+                        Value = (decimal) DollarCurrency
                     }
                 },
                 {
@@ -89,7 +91,7 @@ namespace CurrencyExchange.Tests.Unit
             serviceWrapperMock.Setup(x => x.GetUrl(It.IsAny<string>())).Returns("url");
             serviceWrapperMock.Setup(x => x.GetCurrencyData("url")).Returns(_xDocument);
 
-            _currencyProvider = new CurrencyProvider(previousDayCalculatorMock.Object, currencyConverterMock.Object, serviceWrapperMock.Object);
+            _currencyProvider = new CurrencyProvider(previousDayCalculatorMock.Object, currencyConverterMock.Object, serviceWrapperMock.Object, Mock.Of<IArchivedDataProvider>());
         }
 
         [Test]
@@ -103,7 +105,7 @@ namespace CurrencyExchange.Tests.Unit
 
             var currencyResult = _currencyProvider.Get(currencyRequest);
 
-            Assert.AreEqual(3.14, currencyResult.Value);
+            Assert.AreEqual(DollarCurrency, currencyResult.Value);
             Assert.AreEqual(Trend.Same, currencyResult.Trend);
         }
     }

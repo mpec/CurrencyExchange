@@ -157,6 +157,7 @@
     <Compile Include="Helpers\IServiceWrapper.cs" />
     <Compile Include="Helpers\ServiceWrapper.cs" />
     <Compile Include="Logic\CurrencyConverter.cs" />
+    <Compile Include="Logic\CurrencyProvider.cs" />
     <Compile Include="Logic\ICurrencyConverter.cs" />
     <Compile Include="Logic\IPreviousDayCalculator.cs" />
     <Compile Include="Logic\PreviousDayCalculator.cs" />

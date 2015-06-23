@@ -48,7 +48,6 @@ namespace CurrencyExchange.Helpers
                 }
             }
 
-            //TODO: create a class for this we can test this logic
             var urlForDate = lines.FirstOrDefault(x => x.EndsWith(endOfFileName) && x.StartsWith(Const.FilePrefix));
 
             if (urlForDate == null)

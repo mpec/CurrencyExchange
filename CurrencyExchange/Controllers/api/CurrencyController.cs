@@ -11,11 +11,11 @@ namespace CurrencyExchange.Controllers.api
 {
     public class CurrencyController : ApiController
     {
-        private readonly CurrencyProvider _currencyProvider;
+        private readonly ICurrencyProvider _currencyProvider;
 
-        public CurrencyController()
+        public CurrencyController(ICurrencyProvider currencyProvider)
         {
-            _currencyProvider = new CurrencyProvider(new PreviousDayCalculator(), new CurrencyConverter(), new ServiceWrapper(), new MemoryDataProvider()); //TODO: IoC
+            _currencyProvider = currencyProvider;
         }
 
         public CurrencyResult Get([FromUri]CurrencyRequest data)

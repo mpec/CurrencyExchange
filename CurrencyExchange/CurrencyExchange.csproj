@@ -39,6 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -144,6 +153,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\CurrencyModule.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\api\CurrencyController.cs" />
     <Compile Include="Controllers\AppController.cs" />
@@ -161,6 +171,7 @@
     <Compile Include="Logic\CurrencyConverter.cs" />
     <Compile Include="Logic\CurrencyProvider.cs" />
     <Compile Include="Logic\ICurrencyConverter.cs" />
+    <Compile Include="Logic\ICurrencyProvider.cs" />
     <Compile Include="Logic\IPreviousDayCalculator.cs" />
     <Compile Include="Logic\PreviousDayCalculator.cs" />
     <Compile Include="Models\CurrencyKey.cs" />

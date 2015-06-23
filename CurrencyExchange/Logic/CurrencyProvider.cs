@@ -6,7 +6,7 @@ using CurrencyExchange.Models;
 
 namespace CurrencyExchange.Logic
 {
-    public class CurrencyProvider
+    public class CurrencyProvider : ICurrencyProvider
     {
         private readonly IPreviousDayCalculator _previousDayCalculator;
         private readonly ICurrencyConverter _currencyConverter;

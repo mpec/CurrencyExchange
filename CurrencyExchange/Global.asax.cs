@@ -6,6 +6,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 
 namespace CurrencyExchange
 {
@@ -17,6 +20,11 @@ namespace CurrencyExchange
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            var builder = new ContainerBuilder();
+            builder.RegisterModule(new CurrencyModule());
+            var container = builder.Build();
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

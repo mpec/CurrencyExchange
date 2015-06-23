@@ -1,4 +1,7 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Net;
+using System.Web.Http;
+using CurrencyExchange.Exceptions;
 using CurrencyExchange.Helpers;
 using CurrencyExchange.Infrastructure;
 using CurrencyExchange.Logic;
@@ -17,9 +20,23 @@ namespace CurrencyExchange.Controllers.api
 
         public CurrencyResult Get([FromUri]CurrencyRequest data)
         {
-            var currencyResult = _currencyProvider.Get(data);
+            try
+            {
+                var currencyResult = _currencyProvider.Get(data);
 
-            return currencyResult;
+                return currencyResult;
+            }
+            catch (IncorrectDateException ex)
+            {
+                //log exception
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            catch (DocumentNotFoundException ex)
+            {
+                //log exception
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
         }
     }
 }

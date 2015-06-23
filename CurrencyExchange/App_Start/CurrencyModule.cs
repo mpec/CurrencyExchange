@@ -14,7 +14,7 @@ namespace CurrencyExchange
     {
         protected override void Load(ContainerBuilder builder)
         {
-            var useDbForPersistance = bool.Parse(ConfigurationManager.AppSettings["UseDatabaseForPersistance"]);
+            var useDbForPersistance = bool.Parse(ConfigurationManager.AppSettings["UseDatabaseForPersistance"]); // would be better to use Castle DictionaryAdapter
             base.Load(builder);
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<CurrencyProvider>().As<ICurrencyProvider>();
